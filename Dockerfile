@@ -22,3 +22,6 @@ RUN chmod 0700 /home/siuyin/.ssh
 ADD id_rsa.pub /home/siuyin/.ssh/authorized_keys
 RUN chown siuyin:siuyin /home/siuyin/.ssh/authorized_keys
 RUN chmod 0600 /home/siuyin/.ssh/authorized_keys
+
+# Clean up APT when done.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
